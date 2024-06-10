@@ -1,0 +1,13 @@
+-d C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Tareas\#1 hdl-bits\impl\gwsynthesis\#1 hdl-bits.vg
+-p GW5A-25A-MBGA121N-1
+-pn GW5A-LV25MG121NES
+-cfg C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Tareas\#1 hdl-bits\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
+-global_freq 100.000
+-enable_dsrm 0

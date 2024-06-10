@@ -1,0 +1,24 @@
+Reading netlist file: "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\gwsynthesis\Parciales.vg"
+Parsing netlist file "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\gwsynthesis\Parciales.vg" completed
+Processing netlist completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Generate file "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\pnr\Parciales.pin.html" completed
+Generate file "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\pnr\Parciales.rpt.html" completed
+Generate file "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\pnr\Parciales.rpt.txt" completed
+Generate file "C:\Users\User Name\OneDrive\Escritorio\Verilog\Sistemas-Digitales\Parciales\Parciales\impl\pnr\Parciales.tr.html" completed
+Mon Jun 10 16:15:57 2024
+

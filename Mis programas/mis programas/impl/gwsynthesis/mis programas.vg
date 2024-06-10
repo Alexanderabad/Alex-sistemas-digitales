@@ -1,0 +1,207 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.02"
+//Mon Jun 10 16:43:40 2024
+
+//Source file index table:
+//file0 "\C:/Users/User\ Name/OneDrive/Escritorio/Verilog/Mis\ programas/mis\ programas/src/Encendido\ de\ los\ led.v"
+`timescale 100 ps/100 ps
+module controlador_leds (
+  clk,
+  rst,
+  avanzar,
+  reiniciar,
+  led
+)
+;
+input clk;
+input rst;
+input avanzar;
+input reiniciar;
+output [7:0] led;
+wire clk_d;
+wire rst_d;
+wire avanzar_d;
+wire reiniciar_d;
+wire n16_6;
+wire led_7_8;
+wire led_6_9;
+wire led_5_9;
+wire led_4_10;
+wire led_3_9;
+wire led_2_10;
+wire led_1_10;
+wire led_0_11;
+wire n17_12;
+wire estado_actual_1_14;
+wire n18_9;
+wire [2:0] estado_actual;
+wire VCC;
+wire GND;
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  IBUF rst_ibuf (
+    .O(rst_d),
+    .I(rst) 
+);
+  IBUF avanzar_ibuf (
+    .O(avanzar_d),
+    .I(avanzar) 
+);
+  IBUF reiniciar_ibuf (
+    .O(reiniciar_d),
+    .I(reiniciar) 
+);
+  OBUF led_0_obuf (
+    .O(led[0]),
+    .I(led_0_11) 
+);
+  OBUF led_1_obuf (
+    .O(led[1]),
+    .I(led_1_10) 
+);
+  OBUF led_2_obuf (
+    .O(led[2]),
+    .I(led_2_10) 
+);
+  OBUF led_3_obuf (
+    .O(led[3]),
+    .I(led_3_9) 
+);
+  OBUF led_4_obuf (
+    .O(led[4]),
+    .I(led_4_10) 
+);
+  OBUF led_5_obuf (
+    .O(led[5]),
+    .I(led_5_9) 
+);
+  OBUF led_6_obuf (
+    .O(led[6]),
+    .I(led_6_9) 
+);
+  OBUF led_7_obuf (
+    .O(led[7]),
+    .I(led_7_8) 
+);
+  LUT4 n16_s2 (
+    .F(n16_6),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[1]),
+    .I2(reiniciar_d),
+    .I3(estado_actual[2]) 
+);
+defparam n16_s2.INIT=16'h0708;
+  LUT3 led_7_s6 (
+    .F(led_7_8),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[1]),
+    .I2(estado_actual[2]) 
+);
+defparam led_7_s6.INIT=8'h7F;
+  LUT3 led_6_s6 (
+    .F(led_6_9),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[1]),
+    .I2(estado_actual[2]) 
+);
+defparam led_6_s6.INIT=8'hBF;
+  LUT3 led_5_s6 (
+    .F(led_5_9),
+    .I0(estado_actual[1]),
+    .I1(estado_actual[0]),
+    .I2(estado_actual[2]) 
+);
+defparam led_5_s6.INIT=8'hBF;
+  LUT3 led_4_s7 (
+    .F(led_4_10),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[1]),
+    .I2(estado_actual[2]) 
+);
+defparam led_4_s7.INIT=8'hEF;
+  LUT3 led_3_s6 (
+    .F(led_3_9),
+    .I0(estado_actual[2]),
+    .I1(estado_actual[1]),
+    .I2(estado_actual[0]) 
+);
+defparam led_3_s6.INIT=8'hBF;
+  LUT3 led_2_s7 (
+    .F(led_2_10),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[2]),
+    .I2(estado_actual[1]) 
+);
+defparam led_2_s7.INIT=8'hEF;
+  LUT3 led_1_s7 (
+    .F(led_1_10),
+    .I0(estado_actual[1]),
+    .I1(estado_actual[2]),
+    .I2(estado_actual[0]) 
+);
+defparam led_1_s7.INIT=8'hEF;
+  LUT3 led_0_s8 (
+    .F(led_0_11),
+    .I0(estado_actual[0]),
+    .I1(estado_actual[1]),
+    .I2(estado_actual[2]) 
+);
+defparam led_0_s8.INIT=8'hFE;
+  LUT4 n17_s4 (
+    .F(n17_12),
+    .I0(estado_actual[1]),
+    .I1(reiniciar_d),
+    .I2(estado_actual[0]),
+    .I3(avanzar_d) 
+);
+defparam n17_s4.INIT=16'h1222;
+  LUT2 estado_actual_1_s5 (
+    .F(estado_actual_1_14),
+    .I0(reiniciar_d),
+    .I1(avanzar_d) 
+);
+defparam estado_actual_1_s5.INIT=4'hE;
+  LUT3 n18_s4 (
+    .F(n18_9),
+    .I0(reiniciar_d),
+    .I1(estado_actual[0]),
+    .I2(avanzar_d) 
+);
+defparam n18_s4.INIT=8'h14;
+  DFFCE estado_actual_2_s1 (
+    .Q(estado_actual[2]),
+    .D(n16_6),
+    .CLK(clk_d),
+    .CLEAR(rst_d),
+    .CE(estado_actual_1_14) 
+);
+defparam estado_actual_2_s1.INIT=1'b0;
+  DFFCE estado_actual_1_s4 (
+    .Q(estado_actual[1]),
+    .D(n17_12),
+    .CLK(clk_d),
+    .CLEAR(rst_d),
+    .CE(VCC) 
+);
+defparam estado_actual_1_s4.INIT=1'b0;
+  DFFCE estado_actual_0_s3 (
+    .Q(estado_actual[0]),
+    .D(n18_9),
+    .CLK(clk_d),
+    .CLEAR(rst_d),
+    .CE(VCC) 
+);
+defparam estado_actual_0_s3.INIT=1'b0;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* controlador_leds */

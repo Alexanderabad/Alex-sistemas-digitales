@@ -1,0 +1,18 @@
+[
+ {
+  "InstFile" : "C:/Users/User Name/OneDrive/Escritorio/Verilog/Sistemas-Digitales/Tareas/#1 hdl-bits/src/#1 hdl-bits.v",
+  "InstLine" : 1,
+  "InstName" : "top_module",
+  "ModuleFile" : "C:/Users/User Name/OneDrive/Escritorio/Verilog/Sistemas-Digitales/Tareas/#1 hdl-bits/src/#1 hdl-bits.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top_module"
+ },
+ {
+  "InstFile" : "C:/Users/User Name/OneDrive/Escritorio/Verilog/Sistemas-Digitales/Tareas/#1 hdl-bits/src/#2 hdl-bits.v",
+  "InstLine" : 1,
+  "InstName" : "programe2",
+  "ModuleFile" : "C:/Users/User Name/OneDrive/Escritorio/Verilog/Sistemas-Digitales/Tareas/#1 hdl-bits/src/#2 hdl-bits.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "programe2"
+ }
+]

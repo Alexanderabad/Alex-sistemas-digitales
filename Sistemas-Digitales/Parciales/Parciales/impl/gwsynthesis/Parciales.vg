@@ -1,0 +1,131 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.02"
+//Mon Jun 10 16:15:37 2024
+
+//Source file index table:
+//file0 "\C:/Users/User\ Name/OneDrive/Escritorio/Verilog/Sistemas-Digitales/Parciales/Parciales/src/Parcial\ #1.v"
+`timescale 100 ps/100 ps
+module led (
+  z0,
+  z1,
+  z2,
+  z3,
+  a0,
+  b0,
+  a1,
+  b1,
+  a2,
+  b2,
+  a3,
+  b3
+)
+;
+output z0;
+output z1;
+output z2;
+output z3;
+input a0;
+input b0;
+input a1;
+input b1;
+input a2;
+input b2;
+input a3;
+input b3;
+wire a0_d;
+wire b0_d;
+wire a1_d;
+wire b1_d;
+wire a2_d;
+wire b2_d;
+wire a3_d;
+wire b3_d;
+wire z0_d;
+wire z1_d;
+wire z2_d;
+wire z3_d;
+wire VCC;
+wire GND;
+  IBUF a0_ibuf (
+    .O(a0_d),
+    .I(a0) 
+);
+  IBUF b0_ibuf (
+    .O(b0_d),
+    .I(b0) 
+);
+  IBUF a1_ibuf (
+    .O(a1_d),
+    .I(a1) 
+);
+  IBUF b1_ibuf (
+    .O(b1_d),
+    .I(b1) 
+);
+  IBUF a2_ibuf (
+    .O(a2_d),
+    .I(a2) 
+);
+  IBUF b2_ibuf (
+    .O(b2_d),
+    .I(b2) 
+);
+  IBUF a3_ibuf (
+    .O(a3_d),
+    .I(a3) 
+);
+  IBUF b3_ibuf (
+    .O(b3_d),
+    .I(b3) 
+);
+  OBUF z0_obuf (
+    .O(z0),
+    .I(z0_d) 
+);
+  OBUF z1_obuf (
+    .O(z1),
+    .I(z1_d) 
+);
+  OBUF z2_obuf (
+    .O(z2),
+    .I(z2_d) 
+);
+  OBUF z3_obuf (
+    .O(z3),
+    .I(z3_d) 
+);
+  LUT2 z0_d_s (
+    .F(z0_d),
+    .I0(a0_d),
+    .I1(b0_d) 
+);
+defparam z0_d_s.INIT=4'h9;
+  LUT2 z1_d_s (
+    .F(z1_d),
+    .I0(a1_d),
+    .I1(b1_d) 
+);
+defparam z1_d_s.INIT=4'h9;
+  LUT2 z2_d_s (
+    .F(z2_d),
+    .I0(a2_d),
+    .I1(b2_d) 
+);
+defparam z2_d_s.INIT=4'h9;
+  LUT2 z3_d_s (
+    .F(z3_d),
+    .I0(a3_d),
+    .I1(b3_d) 
+);
+defparam z3_d_s.INIT=4'h9;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* led */
