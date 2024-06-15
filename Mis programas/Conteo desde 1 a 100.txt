@@ -1,0 +1,77 @@
+module SevenSegmentDisplay (
+    input wire clk,     // Reloj
+    input wire rst,     // Reset
+    input wire push,    // Pulsador para cambiar el número
+    output reg [6:0] segments1, // Salidas para el display de las unidades
+    output reg [6:0] segments2,  // Salidas para el display de las decenas
+    output wire sel
+
+);
+
+// Definición de los patrones para cada número en el display de 7 segmentos
+parameter ZERO  = 7'b1000000; // 0
+parameter ONE   = 7'b1111001; // 1
+parameter TWO   = 7'b0100100; // 2
+parameter THREE = 7'b0110000; // 3
+parameter FOUR  = 7'b0011001; // 4
+parameter FIVE  = 7'b0010010; // 5
+parameter SIX   = 7'b0000010; // 6
+parameter SEVEN = 7'b1111000; // 7 
+parameter EIGHT = 7'b0000000; // 8
+parameter NINE  = 7'b0010000; // 9
+
+reg [6:0] count; // Contador de 7 bits para valores de 0 a 100
+assign sel = 0;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        count <= 7'b0; // Reiniciar contador a 0
+    end else if (push) begin
+        if (count < 100)
+            count <= count + 1; // Incrementar contador
+        else
+            count <= 0; // Reiniciar a 0 cuando se alcanza 100
+    end
+end
+
+reg [3:0] units;
+reg [3:0] tens;
+
+always @(*) begin
+    units = count % 10;
+    tens = count / 10;
+end
+
+always @(*) begin
+    // Decodificación de las unidades
+    case (units)
+        4'b0000: segments1 = ZERO;
+        4'b0001: segments1 = ONE;
+        4'b0010: segments1 = TWO;
+        4'b0011: segments1 = THREE;
+        4'b0100: segments1 = FOUR;
+        4'b0101: segments1 = FIVE;
+        4'b0110: segments1 = SIX;
+        4'b0111: segments1 = SEVEN;
+        4'b1000: segments1 = EIGHT;
+        4'b1001: segments1 = NINE;
+        default: segments1 = 7'b1111111; // Apaga el display (este caso no debería ocurrir)
+    endcase
+
+    // Decodificación de las decenas
+    case (tens)
+        4'b0000: segments2 = ZERO;
+        4'b0001: segments2 = ONE;
+        4'b0010: segments2 = TWO;
+        4'b0011: segments2 = THREE;
+        4'b0100: segments2 = FOUR;
+        4'b0101: segments2 = FIVE;
+        4'b0110: segments2 = SIX;
+        4'b0111: segments2 = SEVEN;
+        4'b1000: segments2 = EIGHT;
+        4'b1001: segments2 = NINE;
+        default: segments2 = 7'b1111111; // Apaga el display (este caso no debería ocurrir)
+    endcase
+end
+
+endmodule

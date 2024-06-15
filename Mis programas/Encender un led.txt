@@ -1,0 +1,8 @@
+module Topmodule(
+output wire led1
+
+);
+
+assign led1 = 1;
+
+endmodule

@@ -1,0 +1,23 @@
+display del modulo
+
+A = B10
+B = B11
+C = C11
+D = D10
+E = D11
+F = G11
+G = G10
+
+PULSADORES
+
+S1 = K5
+S2 = L11
+S3 = E11
+S4 = A11
+
+DIS SWICH
+
+K1 = L5
+K2 = K11
+K3 = E10
+K4 = A10
